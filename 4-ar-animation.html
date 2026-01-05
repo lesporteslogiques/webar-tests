@@ -1,0 +1,45 @@
+<!doctype html>
+<meta charset="UTF-8">
+<html>
+    <head>
+        <title>AR & Marqueurs</title>
+        <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.5/aframe/build/aframe-ar.js"></script>
+    </head>
+    <body style="margin:auto; overflow: hidden;">
+        <a-scene embedded
+        arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3; trackingMethod: best ; changeMatrixMode: modelViewMatrix;"
+        renderer="sortObjects: true; antialias: true; colorManagement: true; logarithmicDepthBuffer: true;"
+        vr-mode-ui="enabled: false"
+        smooth="true" smoothCount="5" smoothTolerance=".05" smoothThreshold="5" style="margin-left: 25px;">
+        
+            <!-- Ici, nous avons deux marqueurs différents qui affichent un cube une fois détectés.
+             Chaque cube est animé, ils tournent sur l'axe Y. Deux méthodes d'animation sont présentes ici. -->
+
+            <a-marker type='barcode' value='3'>
+                <!-- Rotation, méthode A-frame : l'attribut "animation" permet de définir le type d'animation 
+                 que l'on souhaite, sur quel axe elle agit, si elle boucle, sa durée, le "easing" permet de définir
+                 si l'animation sera linéaire ou progressive (accélération/décélération) -->
+                <a-box position="0 0 0" rotation="0 0 0" color="orange"
+                animation="property: rotation; to: 0 360 0; loop: true; easing: linear; dur: 12000"></a-box>
+            </a-marker>
+            
+            <a-marker type='barcode' value='5'>
+                <a-box id="tourne" position="0 0 0" rotation="0 0 0" color="red"></a-box>
+                <!-- Rotation, méthode JavaScript : la fonction "setInterval" modife la valeur de l'attribut "rotation"
+                 de +0.1 sur l'axe Y toutes les 10 millisecondes -->
+                <script type="text/javascript" language="Javascript">
+                    var val = 0.0;
+                    setInterval(function() {
+                        document.getElementById("tourne").setAttribute("rotation", "0 "+val+" 0");
+                        val += 0.1;
+                    }, 10);
+                    </script>
+            </a-marker>
+            
+            <!-- Sur l'ordinateur testé, l'ajout de la caméra permet le bon placement des cubes sur leurs marqueurs -->
+            <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+                
+        </a-scene>
+    </body>
+</html>

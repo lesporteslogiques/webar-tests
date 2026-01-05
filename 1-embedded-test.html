@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="UTF-8">
+<!-- Premier test de A-frame, avec une scène 3D intégrée dans une page web classique -->
+<html>
+    <head>
+        <title>Test A-frame</title>
+        <!-- Importation du fichier js qui nous permet d'tiliser A-frame -->
+        <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    </head>
+    <body>
+        <h1>Page de test</h1>
+        <a-scene embedded style="width: 600px; height:400px;">
+            <!-- Axes de translation et rotation par rapport à la position d'origine -->
+            <!-- Axe X - Gauche(-) - Droite(+) - Rotation(+) vers le bas -->
+            <!-- Axe Y - Bas(-) - Haut(+) - Rotation(+) vers la droite-->
+            <!-- Axe Z - Arrière(-) - Avant(+) - Rotation(+) antihoraire -->
+
+            <a-light type="spot" color="#ffffff" position="1 6 0" rotation="0 0 0" target="#directionaltarget"></a-light>
+            <!-- La lumière sera redirigée vers l'objet qui aura l'id "directionaltarget" -->
+            <a-entity id="directionaltarget" position="0 0 -4"></a-entity>
+
+            <!-- Il existe différentes formes primitives de base -->
+            <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box> <!-- On a des cubes -->
+            <a-box position="-1 2 -3" rotation="0 0 0" color="white"></a-box>
+            <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere> <!-- Des sphères -->
+            <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder> <!-- Des cylindres -->
+            <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#DD0044"></a-plane> <!-- Des plans -->
+            <a-sky color="#bbcdff"></a-sky> <!-- On peut aussi définir la couleur du ciel -->
+        </a-scene>
+        <h1>Lorem Ipsum</h1>
+    </body>
+</html>

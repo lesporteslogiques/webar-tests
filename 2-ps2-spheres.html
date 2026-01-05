@@ -1,0 +1,51 @@
+<!doctype html>
+<meta charset="UTF-8">
+<html>
+    <head>
+        <title>PS2 Menu - A-frame</title>
+        <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene>
+            <!-- Plusieurs points de lumière autour des sphères qui seront ajoutées ensuite -->
+            <a-light type="point" position="2.5 2.5 -2.5" color="#ff0000"></a-light>
+            <a-light type="point" position="-2.5 2.5 -2.5" color="#00ff00"></a-light>
+            <a-light type="point" position="-2.5 -2.5 -2.5" color="#0000ff"></a-light>
+            <a-light type="point" position="2.5 -2.5 -2.5" color="#ffff00"></a-light>
+            <a-light type="point" position="2.5 2.5 -7.5" color="#ff00ff"></a-light>
+            <a-light type="point" position="-2.5 2.5 -7.5" color="#00ffff"></a-light>
+            <a-light type="point" position="-2.5 -2.5 -7.5" color="#ff5500"></a-light>
+            <a-light type="point" position="2.5 -2.5 -7.5" color="#ffffff"></a-light>
+
+            <!-- Un petit texte au centre -->
+            <a-text align="center" position="0 1.2 -5" width="14" value="Pivotez !"></a-text>
+
+            <!-- On établit un point d'origine qui sera face à nous par défaut, et la rotation se fera sur les 3 axes -->
+            <a-entity id="origine" position="0 1.2 -5"
+                animation="property: rotation; to: 360 360 360; loop: true; easing: linear; dur: 6000">
+                <!-- On crée un point qui sera enfant du point d'origine, et fera une rotation sur l'axe Z -->
+                <a-entity id="s1" position="0 0 0" rotation="0 0 0" animation="property: rotation; to: 0 0 360; loop: true; easing: linear; dur: 12000">
+                    <!-- La sphère, excentrée, semblera tourner en orbite autour du point d'origine -->
+                    <a-sphere position="0 2 0" radius="0.25" color="white"></a-sphere>
+                </a-entity>
+                <!-- Et on réitère 5 fois s-->
+                <a-entity id="s2" position="0 0 0" rotation="0 0 60" animation="property: rotation; to: 0 0 420; loop: true; easing: linear; dur: 10000">
+                    <a-sphere position="0 2 0" radius="0.25" color="white"></a-sphere>
+                </a-entity>
+                <a-entity id="s3" position="0 0 0" rotation="0 0 120" animation="property: rotation; to: 0 0 480; loop: true; easing: linear; dur: 12000">
+                    <a-sphere position="0 2 0" radius="0.25" color="white"></a-sphere>
+                </a-entity>
+                <a-entity id="s4" position="0 0 0" rotation="0 0 180" animation="property: rotation; to: 0 0 540; loop: true; easing: linear; dur: 10000">
+                    <a-sphere position="0 2 0" radius="0.25" color="white"></a-sphere>
+                </a-entity>
+                <a-entity id="s5" position="0 0 0" rotation="0 0 240" animation="property: rotation; to: 0 0 600; loop: true; easing: linear; dur: 12000">
+                    <a-sphere position="0 2 0" radius="0.25" color="white"></a-sphere>
+                </a-entity>
+                <a-entity id="s6" position="0 0 0" rotation="0 0 300" animation="property: rotation; to: 0 0 660; loop: true; easing: linear; dur: 10000">
+                    <a-sphere position="0 2 0" radius="0.25" color="white"></a-sphere>
+                </a-entity>
+            </a-entity>
+            <a-sky color="#111111"></a-sky>
+        </a-scene>
+    </body>
+</html>
