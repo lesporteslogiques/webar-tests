@@ -2,7 +2,7 @@
 
 Ce dépôt est un regroupement de quelques fichiers html qui ont servi a découvrir et expérimenter un peu le framework A-frame et AR.js. L'objectif était de pouvoir interagir avec un modèle affiché sur un marqueur en réalité augmentée en cliquant dessus (ou en le touchant sur un téléphone). Si ceci ne s'est finalement pas fait, il n'empêche que l'affichage et l'animation de modèles 3D dans une page web reste intéressante et offre beaucoup de possibilités.
 
-## préambule
+# Préambule
 Bibliothèques utilisées
   * a-frame : 
   * AR.js : 
